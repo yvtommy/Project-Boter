@@ -1,0 +1,182 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --vakje-size: 100px;
+  --mark-size: calc(var(--vakje-size) * 0.4);
+}
+/*----------------------------- Grote body -----------------------------*/
+body {
+  margin: 0;
+  background-color: #7c2946;
+  background-size: 100%;
+}
+/*----------------------------- Teksten -----------------------------*/
+h1 {
+  text-align: center;
+  font-style: initial;
+  font-weight: bold;
+  color: black;
+}
+
+h2 {
+  margin: auto;
+  text-align: center;
+  border: 3px solid;
+  border-color: black;
+  width: 50%;
+  padding: 10px;
+  color: black;
+}
+
+h3 {
+  margin: auto;
+  margin-bottom: 40px;
+  text-align: center;
+  border: 3px solid;
+  border-color: black;
+  width: 50%;
+  padding: 10px;
+  color: black;
+}
+/*----------------------------- rijtje -----------------------------*/
+.rijtje {
+  width: 100vw;
+  min-height: 50vh;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-content: center;
+  align-content: center;
+  justify-items: stretch;
+  align-items: stretch;
+}
+/*----------------------------- vakken -----------------------------*/
+.vakje {
+  border: 1px solid black;
+  width: var(--vakje-size);
+  height: var(--vakje-size);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.vakje:nth-child(3n + 1) {
+  border-left: none;
+}
+
+.vakje:nth-child(3n + 3) {
+  border-right: none;
+}
+
+.vakje:first-child,
+.vakje:nth-child(2),
+.vakje:nth-child(3) {
+  border-top: none;
+}
+
+.vakje:last-child,
+.vakje:nth-child(8),
+.vakje:nth-child(7) {
+  border-bottom: none;
+}
+
+.vakje.x,
+.vakje.O {
+  cursor: not-allowed;
+}
+
+.vakje.x::before,
+.vakje.x::after,
+.rijtje.x .vakje:not(.x):not(.O):hover::before,
+.rijtje.x .vakje:not(.x):not(.O):hover::after {
+  content: "";
+  position: absolute;
+  width: calc(var(--mark-size) * 0.15);
+  height: var(--mark-size);
+}
+
+.vakje.x::before,
+.vakje.x:after {
+  background-color: black;
+}
+
+.vakje.x::before,
+.rijtje.x .vakje:not(.x):not(.O):hover::before {
+  transform: rotate(45deg);
+}
+
+.vakje.x::after,
+.rijtje.x .vakje:not(.x):not(.O):hover::after {
+  transform: rotate(-45deg);
+}
+
+.vakje.O::before,
+.vakje.O::after,
+.rijtje.O .vakje:not(.x):not(.O):hover::before,
+.rijtje.O .vakje:not(.x):not(.O):hover::after {
+  content: "";
+  border-radius: 50%;
+  position: absolute;
+}
+
+.vakje.O::before {
+  background-color: black;
+}
+
+.vakje.O::before,
+.rijtje.O .vakje:not(.x):not(.O):hover::before {
+  height: var(--mark-size);
+  width: var(--mark-size);
+}
+
+.vakje.O::after,
+.rijtje.O .vakje:not(.x):not(.O):hover::after {
+  height: calc(var(--mark-size) * 0.7);
+  width: calc(var(--mark-size) * 0.7);
+  background-color: #7c2946;
+}
+
+.rijtje.O .vakje:not(.x):not(.O):hover::before,
+.rijtje.x .vakje:not(.x):not(.O):hover::before,
+.rijtje.x .vakje:not(.x):not(.O):hover::after {
+  background-color: black;
+}
+/*----------------------------- berichten -----------------------------*/
+.gewonnen-bericht {
+  display: none;
+  position: fixed;
+  left: 0;
+  bottom: 2.5px;
+  right: 0;
+  font-weight: 600;
+  color: black;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 20px;
+}
+
+.gewonnen-bericht button {
+  font-size: 15px;
+  font-weight: 600;
+  background-color: #de5d82;
+  background-size: 100%;
+  border: 5px solid black;
+  padding: 0.3em 0.5em;
+  cursor: pointer; /* Muis pointer */
+}
+
+.gewonnen-bericht button:hover {
+  background-color: black;
+  color: #de5d82;
+  border-color: #de5d82;
+}
+
+.gewonnen-bericht.show {
+  display: flex;
+}
