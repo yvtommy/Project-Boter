@@ -9,9 +9,6 @@
     <script src="functie.js" defer></script>
     <title>Boter kaas en eieren</title>
 </head>
-<!---\\ Het maken van XMLhttpObject kon ik niet omdat vanwege mijn gebrek aan kennis en tijdsnood. 
-Ik wilde graag de javascript functie eindresultaat van speler x en o berichten overbrengen naar de PHP database projectBoter,
- maar de PDO verbinding is wel gelukt en de rest heb ik wel afgemaakt wat er als eisen stond op de learningmatter //--->
 
 <!---\\ SESSION / COOKIE //--->
 <?php
