@@ -3,7 +3,7 @@ $servername = "localhost";
 $dbname = "ProjectBoter";
 $username = "root";
 $password = "root";
-// MENEER BERKIEN OF WELKE DOCENT MIJN PROJECT NAKIJKT, MAMP = MET ROOT, XAMP = ZONDER ROOT als wachtwoord \\
+// MAMP = MET ROOT, XAMP = ZONDER ROOT als wachtwoord \\
 try {
     $conn = new PDO(
         "mysql:host=$servername;dbname=$dbname",
